@@ -1,0 +1,98 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+}
+
+.header {
+    background-color: #f0f0f0;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px 0px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 13px 26px rgba(97, 97, 97, 0.2);
+}
+
+.links {
+    background-color: #ddd;
+    padding: 10px;
+    text-decoration: none;
+    color: #202020;
+    border-radius: 6px;
+    font-size: 18px;
+}
+
+.links:hover {
+    background-color: white;
+}
+
+#logo {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 500;
+    color: black;
+    font-size: 28px;
+    padding: 25px;
+    border-radius: 10px;
+    text-decoration: none;
+}
+
+#logout {
+    position: absolute;
+    right: 20px;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    margin-top: 120px;
+}
+
+.game {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.2s;
+}
+
+.game:hover {
+    transform: translateY(-5px);
+}
+
+.game img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.game-content {
+    padding: 15px;
+}
+
+.game-title {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.game-info {
+    font-size: 14px;
+    color: #666;
+    margin-top: 5px;
+}
+
+#pages {
+    text-align: center;
+    margin: 30px;
+    font-size: 18px;
+}
+

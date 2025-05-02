@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recensione: <%= game.titolo%>
+    </title>
+    <link rel="stylesheet" href="css/recensioni.css">
+</head>
+
+<body>
+
+    <div class="header">
+        <a href="/homepage" id="indietro" class="links">INDIETRO</a>
+        <a href="/homepage" id="logo" class="links">GAME ZONE</a>
+        <a href="/login" id="logout" class="links">LOGOUT</a>
+    </div>
+
+    <div class="grid-container">
+
+        <div class="game" id="<%=game.titolo%>">
+            <img src="images\<%=game.titolo%>.jpg" alt="<%= game.titolo %>">
+            <div class="game-content">
+                <div class="game-title">
+                    <%= game.titolo %>
+                </div>
+                <div class="game-info">Genere: <%= game.genere %>
+                </div>
+                <div class="game-info">Anno: <%= game.anno_uscita %>
+                </div>
+            </div>
+        </div>
+
+        <div class="review-section">
+            <h2>RECENSIONI</h2>
+            <% if (recensioni.length > 0) { %>
+              <% recensioni.forEach(r => { %>
+                <div class="review">
+                  <strong><%= r.username %></strong> - <%= r.voto %>/10
+                  <p><%= r.commento %></p>
+                  <small><%= new Date(r.data).toISOString().split('T')[0] %></small>
+                </div>
+              <% }) %>
+            <% } else { %>
+              <p>Nessuna recensione per questo gioco.</p>
+            <% } %>
+      
+            <% if (user) { %>
+              <h3>Scrivi una recensione</h3>
+              <form action="/recensioni" method="post">
+                <input type="hidden" name="gioco_id" value="<%= game.id %>">
+                <input type="hidden" name="utente_id" value="<%= user.id %>">
+      
+                <input type="number" name="voto" min="1" max="10" placeholder="Voto (1-10)" required>
+                <textarea name="commento" maxlength="150" rows="15" placeholder="Commento..." required></textarea>
+                <button type="submit">Invia recensione</button>
+              </form>
+            <% } else { %>
+              <p><a href="/login">Accedi</a> per lasciare una recensione.</p>
+            <% } %>
+        </div> 
+    </div>
+</body>
+
+</html>
